@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const randomNumber = Math.floor(Math.random() * 10) + 1;
 
     if (userGuess === randomNumber) {
-      resultParagraph.textContent = `Mind Reader! <br>You guessed the correct number!<br> I was thinking of ${randomNumber}.`;
+      resultParagraph.textContent = `Mind Reader! You guessed the correct number! I was thinking of ${randomNumber}.`;
     } else if (Math.abs(userGuess - randomNumber) === 1) {
       resultParagraph.textContent = `So close! I was thinking of ${randomNumber}.`;
     } else {
