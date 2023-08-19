@@ -8,6 +8,7 @@ This project is my solution to the coding task discussed in the "Boolean Values 
 - The form is styled using DaisyUI and Tailwind CSS for a visually appealing interface.
 - The user's input is validated to ensure that it falls within the range of 1 to 10.
 - The number that the user is guessing against is generated randomly.
+- EDIT: Added functionality where a user can change the range.
 
 ## Usage
 
