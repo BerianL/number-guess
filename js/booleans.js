@@ -1,5 +1,5 @@
-let MIN_NUMBER = 1;
-let MAX_NUMBER = 10;
+let minNumber = 1;
+let maxNumber = 10;
 
 document.addEventListener("DOMContentLoaded", init);
 
@@ -9,7 +9,7 @@ function init() {
   const settingsButton = document.querySelector(".settings");
   const resultParagraph = document.querySelector(".card-body p");
 
-  input.setAttribute("placeholder", `Enter a number between ${MIN_NUMBER} and ${MAX_NUMBER}.`);
+  input.setAttribute("placeholder", `Enter a number between ${minNumber} and ${maxNumber}.`);
 
   guessButton.addEventListener("click", handleGuess);
   settingsButton.addEventListener("click", showSettings);
@@ -18,11 +18,11 @@ function init() {
     const userGuess = getUserGuess(input.value);
 
     if (isInvalidGuess(userGuess)) {
-      displayResult(`Please enter a valid number between ${MIN_NUMBER} and ${MAX_NUMBER}.`);
+      displayResult(`Please enter a valid number between ${minNumber} and ${maxNumber}.`);
       return;
     }
 
-    const randomNumber = getRandomNumber(MIN_NUMBER, MAX_NUMBER);
+    const randomNumber = getRandomNumber(minNumber, maxNumber);
 
     const guessMessage = getGuessMessage(userGuess, randomNumber);
     displayResult(guessMessage);
@@ -36,11 +36,11 @@ function init() {
       html: `
       <div class="my-4">
       <label class="mr-4" for="minNumber">Min Number:</label>
-        <input id="minNumber" type="number" value="${MIN_NUMBER}" required class="input text-primary input-secondary input-xs w-full max-w-xs" />
+        <input id="minNumber" type="number" value="${minNumber}" required class="input text-primary input-secondary input-xs w-full max-w-xs" />
         <br>
         <br>
         <label class="mr-4" for="maxNumber">Max Number:</label>
-        <input id="maxNumber" type="number" value="${MAX_NUMBER}" required class="input text-primary input-secondary input-xs w-full max-w-xs">
+        <input id="maxNumber" type="number" value="${maxNumber}" required class="input text-primary input-secondary input-xs w-full max-w-xs">
         </div>
         `,
       showCancelButton: true,
@@ -50,9 +50,9 @@ function init() {
         const newMax = parseInt(document.getElementById('maxNumber').value);
 
         if (!Number.isNaN(newMin) && !Number.isNaN(newMax) && newMin <= newMax) {
-          MIN_NUMBER = newMin;
-          MAX_NUMBER = newMax;
-          input.setAttribute("placeholder", `Enter a number between ${MIN_NUMBER} and ${MAX_NUMBER}.`);
+          minNumber = newMin;
+          maxNumber = newMax;
+          input.setAttribute("placeholder", `Enter a number between ${minNumber} and ${maxNumber}.`);
         } else {
           Swal.showValidationMessage('Invalid input. Please provide valid minimum and maximum numbers.');
         }
@@ -73,7 +73,7 @@ function init() {
   }
 
   function isInvalidGuess(guess) {
-    return Number.isNaN(guess) || guess < MIN_NUMBER || guess > MAX_NUMBER;
+    return Number.isNaN(guess) || guess < minNumber || guess > maxNumber;
   }
 
   function getGuessMessage(userGuess, randomNumber) {
